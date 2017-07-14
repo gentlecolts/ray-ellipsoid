@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1499980301 source:/home/zangoose/Documents/c++/ray-ellipsoid/main.cpp
+	<cstdlib>
+	<iostream>
+	<SDL/SDL.h>
+	<cmath>
+	<algorithm>
+	<chrono>
+
