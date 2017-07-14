@@ -7,3 +7,11 @@
 	<algorithm>
 	<chrono>
 
+1499980301 source:/home/zangoose/git/ray-ellipsoid/main.cpp
+	<cstdlib>
+	<iostream>
+	<SDL/SDL.h>
+	<cmath>
+	<algorithm>
+	<chrono>
+

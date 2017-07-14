@@ -162,6 +162,7 @@ void render(SDL_Surface* screen){
 	//cam.pos.z=-20+15*sin(angle);
 
 	elip.x=2+1*sin(angle);
+	elip.y=1+0.25*cos(angle);
 	elip.z=1.5+cos(angle);
 
 	float t0,t1;
