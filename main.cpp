@@ -100,7 +100,7 @@ public:
 		t1=(-b+rt)/(2*a);
 		//*/
 
-		return (eq>=0) & ((t0>=0) | (t1>0));
+		return (eq>=0) & ((t0>=0) | (t1>=0));
 	}
 } elip;
 
@@ -160,6 +160,8 @@ void render(SDL_Surface* screen){
 
 	//cout<<seconds_since_start<<endl;
 	//cam.pos.z=-20+15*sin(angle);
+	//cam.pos.x=cos(angle/7);
+	//cam.pos.y=sin(angle/7);
 
 	elip.x=2+1*sin(angle);
 	elip.y=1+0.25*cos(angle);
