@@ -68,6 +68,20 @@ public:
 		a=|v1|^2
 		b=2*(P1 dot v1)
 		c=|P1|^2 - 1
+
+		additionally, factoring the 2 out of b can be used to simplify things slightly:
+
+		let u=(P1 dot v1)
+		b=2*u
+
+		t=(-b ± sqrt(b*b-4*a*c))/(2*a)
+		t=(-2*u ± sqrt(2*u*2*u-4*a*c))/(2*a)
+		t=(-2*u ± sqrt(4*(u*u-a*c)))/(2*a)
+		t=(-2*u ± 2*sqrt(u*u-a*c))/(2*a)
+		t=2*(-u ± sqrt(u*u-a*c))/(2*a)
+		t=(-u ± sqrt(u*u-a*c))/a
+
+		this is, of course, an extremely minor simplification, but it's free and any little bit helps
 		*/
 		const vec3d P1(
 			(r.ori.x-pos.x)/x,
@@ -80,25 +94,17 @@ public:
 			r.dir.z/z
 		);
 
-		const float
+		const double
 			a=dot(v1,v1),
-			b=2*dot(P1,v1),
+			b=dot(P1,v1),
 			c=dot(P1,P1)-1;
 
-		const float
-			eq=b*b-4*a*c,
-			rt=sqrt(eq);
-		/*
-		const float
-			r1=(-b-rt)/(2*a),
-			r2=(-b+rt)/(2*a);
-		t0=min(r1,r2);
-		t1=max(r1,r2);
-		/*/
-		//since in this context, (a) must always be positive, t0 will always be the lower value
-		t0=(-b-rt)/(2*a);
-		t1=(-b+rt)/(2*a);
-		//*/
+		const double
+			eq=(b*b-a*c),
+			rt=std::sqrt(eq);
+		//in this context, (a) is a sum of squares and thus must always be positive, t0 will always be the lower value
+		t0=(-b-rt)/a;
+		t1=(-b+rt)/a;
 
 		return (eq>=0) & ((t0>=0) | (t1>=0));
 	}
